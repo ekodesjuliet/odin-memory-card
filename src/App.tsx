@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Homepage } from "./Homepage"
 import type { Character } from "./character"
 import { fetchCharacters } from "./characterService"
+import { Gameboard } from "./Gameboard"
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = "easy" | "medium" | "hard"
@@ -28,6 +29,12 @@ export const App = () => {
       {gameState === "idle" &&
         <Homepage
           onStartGame={startGame}
+        />
+      }
+
+      {gameState === "active" && difficulty !== null &&
+        <Gameboard
+          characters={characters}
         />
       }
 
