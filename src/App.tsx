@@ -7,6 +7,12 @@ import { Gameboard } from "./Gameboard"
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = "easy" | "medium" | "hard"
 
+const DIFFICULTY_CONFIG = {
+  easy: 8,
+  medium: 12,
+  hard: 20,
+}
+
 export const App = () => {
   const [gameState, setGameState] = useState<GameState>("idle")
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
@@ -34,6 +40,7 @@ export const App = () => {
 
       {gameState === "active" && difficulty !== null &&
         <Gameboard
+          cardCount={DIFFICULTY_CONFIG[difficulty]}
           characters={characters}
         />
       }
