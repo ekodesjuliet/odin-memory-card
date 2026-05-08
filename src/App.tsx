@@ -13,6 +13,17 @@ const DIFFICULTY_CONFIG = {
   hard: 20,
 }
 
+const shuffleCharacters = (characters: Character[]) => {
+  const shuffled = [...characters]
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled
+}
+
 export const App = () => {
   const [gameState, setGameState] = useState<GameState>("idle")
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
@@ -36,13 +47,17 @@ export const App = () => {
 
       return nextSet
     })
+
+    setCharacters(prev => shuffleCharacters(prev))
   }
 
   useEffect(() => {
-    if (gameState === "active") {
-      fetchCharacters()
-        .then(data => setCharacters(data))
-    }
+    if (gameState !== "active" || difficulty === null) return
+    fetchCharacters()
+      .then(data => {
+        const selected = data.slice(0, DIFFICULTY_CONFIG[difficulty])
+        setCharacters(selected)
+      })
   }, [gameState])
 
   return (
@@ -55,7 +70,6 @@ export const App = () => {
 
       {gameState === "active" && difficulty !== null &&
         <Gameboard
-          cardCount={DIFFICULTY_CONFIG[difficulty]}
           characters={characters}
           onCardClick={onCardClick}
         />
