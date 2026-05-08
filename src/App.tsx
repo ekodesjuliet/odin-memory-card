@@ -17,10 +17,25 @@ export const App = () => {
   const [gameState, setGameState] = useState<GameState>("idle")
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
   const [characters, setCharacters] = useState<Character[]>([])
+  const [clickedCards, setClickedCards] = useState<Set<number>>(new Set())
 
   const startGame = (difficulty: Difficulty) => {
     setDifficulty(difficulty)
     setGameState("active")
+  }
+
+  const onCardClick = (id: number) => {
+    if (clickedCards.has(id)) {
+      setGameState("ended")
+      return
+    }
+
+    setClickedCards(prevSet => {
+      const nextSet = new Set(prevSet)
+      nextSet.add(id)
+
+      return nextSet
+    })
   }
 
   useEffect(() => {
@@ -42,6 +57,7 @@ export const App = () => {
         <Gameboard
           cardCount={DIFFICULTY_CONFIG[difficulty]}
           characters={characters}
+          onCardClick={onCardClick}
         />
       }
 
