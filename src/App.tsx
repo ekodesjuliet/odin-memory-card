@@ -3,6 +3,7 @@ import { Homepage } from "./Homepage"
 import type { Character } from "./character"
 import { fetchCharacters } from "./characterService"
 import { Gameboard } from "./Gameboard"
+import { Score } from "./Score";
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = "easy" | "medium" | "hard"
@@ -75,12 +76,21 @@ export const App = () => {
       }
 
       {gameState === "active" && difficulty !== null &&
-        <Gameboard
-          characters={characters}
-          onCardClick={onCardClick}
-        />
+        <>
+          <header>
+            <Score
+              currentScore={currentScore}
+              highScore={highScore}
+            />
+          </header>
+          <main>
+            <Gameboard
+              characters={characters}
+              onCardClick={onCardClick}
+            />
+          </main>
+        </>
       }
-
     </>
   )
 }
