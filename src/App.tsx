@@ -29,6 +29,8 @@ export const App = () => {
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
   const [characters, setCharacters] = useState<Character[]>([])
   const [clickedCards, setClickedCards] = useState<Set<number>>(new Set())
+  const [currentScore, setCurrentScore] = useState<number>(0)
+  const [highScore, setHighScore] = useState<number>(0)
 
   const startGame = (difficulty: Difficulty) => {
     setDifficulty(difficulty)
@@ -48,7 +50,11 @@ export const App = () => {
       return nextSet
     })
 
+    const nextScore = currentScore + 1
+
     setCharacters(prev => shuffleCharacters(prev))
+    setCurrentScore(nextScore)
+    setHighScore(prev => Math.max(prev, nextScore))
   }
 
   useEffect(() => {
