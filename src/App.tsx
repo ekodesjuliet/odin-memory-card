@@ -4,6 +4,7 @@ import type { Character } from "./character"
 import { fetchCharacters } from "./characterService"
 import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
+import { Gameover } from "./Gameover"
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = "easy" | "medium" | "hard"
@@ -58,6 +59,14 @@ export const App = () => {
     setHighScore(prev => Math.max(prev, nextScore))
   }
 
+  const restartGame = () => {
+    if (difficulty === null) return
+
+    setCurrentScore(0)
+    setClickedCards(new Set())
+    startGame(difficulty)
+  }
+
   useEffect(() => {
     if (gameState !== "active" || difficulty === null) return
     fetchCharacters()
@@ -75,7 +84,7 @@ export const App = () => {
         />
       }
 
-      {gameState === "active" && difficulty !== null &&
+      {(gameState === "active" || gameState === "ended") && difficulty !== null &&
         <>
           <header>
             <Score
@@ -90,6 +99,12 @@ export const App = () => {
             />
           </main>
         </>
+      }
+
+      {gameState === "ended" &&
+        <Gameover
+          restartGame={restartGame}
+        />
       }
     </>
   )
