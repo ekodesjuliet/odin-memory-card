@@ -8,9 +8,10 @@ type ApiResponse = {
   results: ApiCharacter[]
 }
 
-const API_URL = "https://rickandmortyapi.com/api/character"
-
 export const fetchApiCharacters = async (): Promise<ApiResponse> => {
+  const page = Math.floor(Math.random() * 41) + 1
+
+  const API_URL = `https://rickandmortyapi.com/api/character/?page=${page}`
   const response = await fetch(API_URL)
 
   if (!response.ok) {
