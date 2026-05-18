@@ -11,8 +11,7 @@ type ApiResponse = {
 export const fetchApiCharacters = async (): Promise<ApiResponse> => {
   const page = Math.floor(Math.random() * 41) + 1
 
-  const API_URL = `https://rickandmortyapi.com/api/character/?page=${page}`
-  const response = await fetch(API_URL)
+  const response = await fetch(`/api/character/?page=${page}`)
 
   if (!response.ok) {
     throw new Error("Failed to fetch characters.")
