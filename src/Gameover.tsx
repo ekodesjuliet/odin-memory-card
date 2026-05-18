@@ -5,11 +5,11 @@ type GameoverProps = {
 export const Gameover = ({ restartGame }: GameoverProps) => (
   <div className="overlay">
     <dialog open>
-      <p>Meh! Poor memory!</p>
+      <p>Memory is fragile. Yours just proved it.</p>
       <button
         onClick={restartGame}
       >
-        Try Again
+        Try Again, Morty!
       </button>
     </dialog>
   </div>
