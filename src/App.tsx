@@ -67,6 +67,14 @@ export const App = () => {
     startGame(difficulty)
   }
 
+  const onBackButton = () => {
+    setGameState("idle")
+    setCurrentScore(0)
+    setClickedCards(new Set())
+    setCharacters([])
+    setDifficulty(null)
+  }
+
   useEffect(() => {
     if (gameState !== "active" || difficulty === null) return
     fetchCharacters()
@@ -98,6 +106,11 @@ export const App = () => {
               onCardClick={onCardClick}
             />
           </main>
+          <button
+            onClick={onBackButton}
+          >
+            Back
+          </button>
         </>
       }
 
