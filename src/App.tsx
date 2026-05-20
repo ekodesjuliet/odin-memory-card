@@ -5,6 +5,7 @@ import { fetchCharacters } from "./characterService"
 import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
 import { Gameover } from "./Gameover"
+import { Background } from "./Background"
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = "easy" | "medium" | "hard"
@@ -86,6 +87,8 @@ export const App = () => {
 
   return (
     <>
+      <Background />
+
       {gameState === "idle" &&
         <Homepage
           onStartGame={startGame}
