@@ -5,27 +5,138 @@ type DifficultySelectorProps = {
 }
 
 export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => (
-  <section>
+  <section className="flex flex-col gap-7 text-xl mt-16 items-center">
 
     <button
       type="button"
       onClick={() => onStartGame("easy")}
+      className="
+      w-40
+      rounded-sm
+      bg-green-800
+      text-amber-50
+      cursor-pointer
+      transition-colors duration-300
+      active:scale-95
+      overflow-hidden
+      relative
+      hover:shadow-[0_0_12px_#39ff14]
+      group
+      "
     >
-      Brainrot
+      <span className="
+       relative z-10
+      flex justify-between
+      before:content-['[']
+      after:content-[']']
+      before:text-lime-300
+      after:text-lime-300
+      group-hover:before:text-white
+      group-hover:after:text-white
+        ">
+        Morty
+      </span>
+
+      <span
+        className="
+      absolute inset-0
+      origin-center
+      bg-green-400
+      opacity-25
+      scale-x-0
+      transition-transform duration-300
+      group-hover:scale-x-100
+      pointer-events-none
+    "
+      />
     </button>
 
     <button
       type="button"
-      onClick={() => onStartGame("medium")}
+      onClick={() => onStartGame("easy")}
+      className="
+      w-40
+      rounded-sm
+      bg-green-800
+      text-amber-50
+      cursor-pointer
+      transition-colors duration-300
+      active:scale-95
+      overflow-hidden
+      relative
+      hover:shadow-[0_0_12px_#39ff14]
+      group
+      "
     >
-      Mid
+      <span className="
+      relative z-10
+      flex justify-between
+      before:content-['[']
+      after:content-[']']
+      before:text-lime-300
+      after:text-lime-300
+      group-hover:before:text-white
+      group-hover:after:text-white
+        ">
+        Summer
+      </span>
+
+      <span
+        className="
+      absolute inset-0
+      origin-center
+      bg-green-400
+      opacity-25
+      scale-x-0
+      transition-transform duration-300
+      group-hover:scale-x-100
+      pointer-events-none
+    "
+      />
     </button>
 
     <button
       type="button"
-      onClick={() => onStartGame("hard")}
+      onClick={() => onStartGame("easy")}
+      className="
+      w-40
+      rounded-sm
+      bg-green-800
+      text-amber-50
+      cursor-pointer
+      transition-colors duration-300
+      active:scale-95
+      overflow-hidden
+      relative
+      hover:shadow-[0_0_12px_#39ff14]
+      group
+      "
     >
-      Tryhard
+      <span className="
+      relative z-10
+      flex justify-between
+      before:content-['[']
+      after:content-[']']
+      before:text-lime-300
+      after:text-lime-300
+      group-hover:before:text-white
+      group-hover:after:text-white
+        ">
+        Rick
+      </span>
+
+      <span
+        className="
+      absolute inset-0
+      origin-center
+      bg-green-400
+      opacity-25
+      scale-x-0
+      transition-transform duration-300
+      group-hover:scale-x-100
+      pointer-events-none
+    "
+      />
     </button>
 
   </section >
