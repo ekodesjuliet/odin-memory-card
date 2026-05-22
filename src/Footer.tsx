@@ -2,8 +2,25 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer>
-      <p>
+    <footer className="
+      fixed
+      bottom-2
+      flex
+      w-full
+      justify-center 
+      xl:justify-end 
+      xl:pr-5
+      "
+    >
+      <div
+        className="
+        flex
+        items-center
+        text-amber-100
+        text-sm
+        gap-2
+        "
+      >
         {`© ${currentYear} Designed and built by ekodes`}
         <a
           href="https://github.com/krig6"
@@ -12,8 +29,8 @@ export const Footer = () => {
           rel="noopener noreferrer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             fill="currentColor"
             viewBox="0 0 16 16"
           >
@@ -33,7 +50,7 @@ export const Footer = () => {
               8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
           </svg>
         </a>
-      </p>
+      </div>
     </footer>
   )
 }
