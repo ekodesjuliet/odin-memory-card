@@ -5,7 +5,7 @@ type DifficultySelectorProps = {
 }
 
 export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => (
-  <section className="flex flex-col gap-7 text-xl mt-16 items-center">
+  <section className="flex flex-col gap-10 text-xl mt-22 items-center">
 
     <button
       type="button"

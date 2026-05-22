@@ -1,9 +1,9 @@
 export const Header = () => (
-  <header className="pt-48">
+  <header className="pt-20">
     <h1
       className="
       text-center 
-      text-5xl 
+      text-7xl 
       tracking-tight
       font-black 
       text-[#A2E81A] 
