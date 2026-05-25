@@ -9,13 +9,25 @@ import { Background } from "./Background"
 import { GameTitle } from "./GameTitle"
 
 type GameState = "idle" | "active" | "ended"
-export type Difficulty = "easy" | "medium" | "hard"
+export type Difficulty = typeof DIFFICULTY_CONFIG[number]["difficulty"]
 
-const DIFFICULTY_CONFIG = {
-  easy: 8,
-  medium: 12,
-  hard: 20,
-}
+export const DIFFICULTY_CONFIG = [
+  {
+    difficulty: "easy",
+    cardCount: 8,
+    displayName: "Morty"
+  },
+  {
+    difficulty: "medium",
+    cardCount: 12,
+    displayName: "Summer"
+  },
+  {
+    difficulty: "hard",
+    cardCount: 20,
+    displayName: "Rick"
+  }
+] as const
 
 const shuffleCharacters = (characters: Character[]) => {
   const shuffled = [...characters]
@@ -79,9 +91,13 @@ export const App = () => {
 
   useEffect(() => {
     if (gameState !== "active" || difficulty === null) return
+
+    const config = DIFFICULTY_CONFIG.find(config => config.difficulty === difficulty)
+    if (!config) return
+
     fetchCharacters()
       .then(data => {
-        const selected = data.slice(0, DIFFICULTY_CONFIG[difficulty])
+        const selected = data.slice(0, config?.cardCount)
         setCharacters(selected)
       })
   }, [gameState])
