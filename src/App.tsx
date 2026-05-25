@@ -6,6 +6,7 @@ import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
+import { GameTitle } from "./GameTitle"
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = "easy" | "medium" | "hard"
@@ -98,6 +99,7 @@ export const App = () => {
       {(gameState === "active" || gameState === "ended") && difficulty !== null &&
         <>
           <header>
+            <GameTitle />
             <Score
               currentScore={currentScore}
               highScore={highScore}
