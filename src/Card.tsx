@@ -7,9 +7,24 @@ type CardProps = {
 
 export const Card = ({ character, onCardClick }: CardProps) => (
   <article
+    className="
+    flex
+    flex-col
+    items-center
+    text-center
+    text-amber-300
+    text-sm
+    gap-2
+    z-10
+    "
     onClick={() => onCardClick(character.id)}
   >
-    <img src={character.image} alt={character.name} />
+    <img
+      className="
+      rounded-sm
+      "
+      src={character.image}
+      alt={character.name} />
     <p>{character.name}</p>
   </article>
 )
