@@ -53,7 +53,7 @@ export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => 
 
     <button
       type="button"
-      onClick={() => onStartGame("easy")}
+      onClick={() => onStartGame("medium")}
       className="
       w-40
       rounded-sm
@@ -97,7 +97,7 @@ export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => 
 
     <button
       type="button"
-      onClick={() => onStartGame("easy")}
+      onClick={() => onStartGame("hard")}
       className="
       w-40
       rounded-sm
