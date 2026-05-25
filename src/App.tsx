@@ -103,17 +103,25 @@ export const App = () => {
               highScore={highScore}
             />
           </header>
-          <main>
+          <main
+            className="flex flex-col"
+          >
             <Gameboard
               characters={characters}
               onCardClick={onCardClick}
             />
+
+            <button
+              className="
+              z-10
+              mb-4
+              text-amber-100
+            "
+              onClick={onBackButton}
+            >
+              Back
+            </button>
           </main>
-          <button
-            onClick={onBackButton}
-          >
-            Back
-          </button>
         </>
       }
 
