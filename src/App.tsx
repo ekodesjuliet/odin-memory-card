@@ -6,7 +6,6 @@ import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
-import { GameTitle } from "./GameTitle"
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = typeof DIFFICULTY_CONFIG[number]["difficulty"]
@@ -114,8 +113,20 @@ export const App = () => {
 
       {(gameState === "active" || gameState === "ended") && difficulty !== null &&
         <>
-          <header>
-            <GameTitle />
+          <header
+            className="
+            relative z-10
+            "
+          >
+            <button
+              className="
+              mb-4
+              text-amber-100
+            "
+              onClick={onBackButton}
+            >
+              Back
+            </button>
             <Score
               currentScore={currentScore}
               highScore={highScore}
@@ -128,17 +139,6 @@ export const App = () => {
               characters={characters}
               onCardClick={onCardClick}
             />
-
-            <button
-              className="
-              z-10
-              mb-4
-              text-amber-100
-            "
-              onClick={onBackButton}
-            >
-              Back
-            </button>
           </main>
         </>
       }
