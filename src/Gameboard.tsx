@@ -7,7 +7,16 @@ type GameboardProps = {
 }
 
 export const Gameboard = ({ characters, onCardClick }: GameboardProps) => (
-  <section>
+  <section
+    className="
+    m-6
+    grid
+    gap-10
+    grid-cols-2
+    xl:grid-cols-5
+    z-10
+    "
+  >
     {
       characters.map(character => (
         <Card
