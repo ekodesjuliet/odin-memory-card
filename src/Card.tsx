@@ -17,14 +17,20 @@ export const Card = ({ character, onCardClick }: CardProps) => (
     gap-2
     z-10
     "
-    onClick={() => onCardClick(character.id)}
   >
-    <img
-      className="
-      rounded-sm
-      "
-      src={character.image}
-      alt={character.name} />
-    <p>{character.name}</p>
+    <button
+      type="button"
+      className="cursor-pointer"
+      onClick={() => onCardClick(character.id)}
+    >
+      <img
+        className="
+        rounded-sm
+        "
+        src={character.image}
+        alt={character.name}
+      />
+      <p>{character.name}</p>
+    </button>
   </article>
 )
