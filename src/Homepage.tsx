@@ -9,7 +9,7 @@ type HomePageProps = {
 
 export const Homepage = ({ onStartGame }: HomePageProps) => (
   <main>
-    <header>
+    <header className="pt-20">
       <GameTitle />
     </header>
 

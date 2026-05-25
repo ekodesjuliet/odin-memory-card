@@ -17,7 +17,7 @@ export const Footer = () => {
         flex
         items-center
         text-amber-100
-        text-sm
+        text-[10px]
         gap-2
         "
       >
