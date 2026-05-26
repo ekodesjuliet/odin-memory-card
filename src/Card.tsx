@@ -8,29 +8,67 @@ type CardProps = {
 export const Card = ({ character, onCardClick }: CardProps) => (
   <article
     className="
-    flex
-    flex-col
-    items-center
-    text-center
-    text-amber-300
-    text-sm
-    gap-2
-    z-10
+      flex
+      flex-col
+      items-center
+      text-center
+      gap-2
+      z-10
+      group
     "
   >
     <button
       type="button"
-      className="cursor-pointer"
       onClick={() => onCardClick(character.id)}
+      className="
+        relative
+        flex
+        flex-col
+        items-center
+        cursor-pointer
+        rounded-md
+        overflow-hidden
+        border
+        border-lime-400
+        bg-black/40
+        drop-shadow-[2px_3px_1px_#00B0FF]
+        transition-all
+        duration-300
+        hover:scale-105
+        hover:shadow-[0_0_25px_rgba(0,255,200,0.35)]
+        hover:border-[#00B0FF]
+      "
     >
       <img
         className="
-        rounded-sm
+          w-40 md:w-60
+          transition-all
+          duration-500
+          group-hover:scale-110
+          group-hover:rotate-1
+          group-hover:saturate-150
         "
         src={character.image}
         alt={character.name}
       />
-      <p>{character.name}</p>
+
+      <p
+        className="
+          relative
+          z-10
+          px-2
+          py-2
+          text-xs
+          w-30 md:w-50 lg:w-60
+          truncate
+          tracking-wide
+          text-lime-300
+          drop-shadow-[0_0_6px_rgba(0,255,100,0.6)]
+          group-hover:text-white
+        "
+      >
+        {character.name}
+      </p>
     </button>
   </article>
 )
