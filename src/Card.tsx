@@ -41,7 +41,7 @@ export const Card = ({ character, onCardClick }: CardProps) => (
     >
       <img
         className="
-          w-40 md:w-60
+          w-full
           transition-all
           duration-500
           group-hover:scale-110

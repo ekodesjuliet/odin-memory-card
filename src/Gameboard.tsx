@@ -12,8 +12,7 @@ export const Gameboard = ({ characters, onCardClick }: GameboardProps) => (
     m-6
     grid
     gap-10
-    grid-cols-2
-    xl:grid-cols-5
+    grid-cols-2 md:grid-cols-3 xl:grid-cols-5
     z-10
     "
   >
