@@ -39,6 +39,17 @@ export const Card = ({ character, onCardClick }: CardProps) => (
         hover:border-[#00B0FF]
       "
     >
+      <div
+        className="
+          absolute
+          inset-0
+          bg-linear-to-tl
+          from-black/40
+          opacity-80
+          group-hover:opacity-60
+        "
+      />
+
       <img
         className="
           w-full
