@@ -14,7 +14,8 @@ export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => 
         type="button"
         onClick={() => onStartGame(config.difficulty)}
         className="
-        w-40
+        w-40 md:w-60
+        md:p-2
         rounded-sm
         bg-green-800
         text-amber-50
@@ -32,10 +33,14 @@ export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => 
           flex justify-between
           before:content-['[']
           after:content-[']']
+          md:before:text-2xl
+          md:after:text-2xl
           before:text-lime-300
           after:text-lime-300
           group-hover:before:text-white
           group-hover:after:text-white
+          md:text-2xl
+          items-center
           ">
           {config.displayName}
         </span>
