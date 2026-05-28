@@ -53,6 +53,8 @@ export const App = () => {
   }
 
   const onCardClick = (id: number) => {
+    if (gameState === "ended") return
+
     if (clickedCards.has(id)) {
       setGameState("ended")
       return
