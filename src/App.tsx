@@ -115,15 +115,32 @@ export const App = () => {
         <>
           <header
             className="
-            relative z-10
+            relative
+            z-10
+            mt-5
+            w-full
+            flex
+            items-center
+            justify-between
+            px-6
+            gap-4
             "
           >
             <button
-              className="
-              mb-4
-              text-amber-100
-            "
               onClick={onBackButton}
+              className="
+              text-sm
+              text-slate-200
+              bg-slate-900/70
+              px-3
+              py-1.5
+              rounded-md
+              border
+              border-slate-800
+              hover:bg-slate-700/60
+              transition-colors
+              cursor-pointer
+              "
             >
               Back
             </button>
