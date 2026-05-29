@@ -44,7 +44,7 @@ export const App = () => {
     setCharacters(prev => shuffleCharacters(prev))
   }
 
-  const restartGame = () => {
+  const handleTryAgain = () => {
     if (difficulty === null) return
 
     setClickedCards(new Set())
@@ -136,7 +136,7 @@ export const App = () => {
 
       {gameState === "ended" &&
         <Gameover
-          restartGame={restartGame}
+          onTryAgain={handleTryAgain}
         />
       }
     </>
