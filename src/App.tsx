@@ -58,9 +58,7 @@ export const App = () => {
     setDifficulty(null)
   }
 
-  useEffect(() => {
-    if (gameState !== "active" || difficulty === null) return
-
+  const loadCharacters = async (difficulty: Difficulty) => {
     const config = DIFFICULTY_CONFIG.find(config => config.difficulty === difficulty)
     if (!config) return
 
@@ -69,6 +67,12 @@ export const App = () => {
         const selected = data.slice(0, config?.cardCount)
         setCharacters(selected)
       })
+  }
+
+  useEffect(() => {
+    if (gameState !== "active" || difficulty === null) return
+
+    loadCharacters(difficulty)
   }, [gameState, difficulty])
 
   return (
