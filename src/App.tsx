@@ -1,87 +1,24 @@
-import { useState } from "react"
 import { Homepage } from "./Homepage"
-import type { Character } from "./character"
-import { fetchCharacters } from "./characterService"
 import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
-import { shuffleCharacters } from "./shuffleCharacters"
-import type { Difficulty } from "./difficulty"
-import { DIFFICULTY_CONFIG } from "./difficulty"
-
-type GameState = "idle" | "active" | "ended"
+import { useGame } from "./useGame"
 
 export const App = () => {
-  const [gameState, setGameState] = useState<GameState>("idle")
-  const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [clickedCards, setClickedCards] = useState<Set<number>>(new Set())
-  const [highScore, setHighScore] = useState<number>(0)
-
-  const currentScore = clickedCards.size
-  const isGameScreen = gameState !== "idle"
-
-  const handleStartGame = (difficulty: Difficulty) => {
-    setGameState("active")
-    setDifficulty(difficulty)
-    loadCharacters(difficulty)
-  }
-
-  const handleCardClick = (id: number) => {
-    if (gameState === "ended") return
-
-    if (clickedCards.has(id)) {
-      setGameState("ended")
-      return
-    }
-
-    const nextSet = new Set(clickedCards)
-    nextSet.add(id)
-
-    setClickedCards(nextSet)
-
-    setHighScore(prev => Math.max(prev, nextSet.size))
-
-    setCharacters(prev => shuffleCharacters(prev))
-  }
-
-  const handleTryAgain = () => {
-    if (difficulty === null) return
-
-    setClickedCards(new Set())
-    handleStartGame(difficulty)
-  }
-
-  const handleBackToHome = () => {
-    setGameState("idle")
-    setClickedCards(new Set())
-    setCharacters([])
-    setDifficulty(null)
-  }
-
-  const loadCharacters = async (difficulty: Difficulty) => {
-    const config = DIFFICULTY_CONFIG.find(config => config.difficulty === difficulty)
-    if (!config) return
-
-    fetchCharacters()
-      .then(data => {
-        const selected = data.slice(0, config?.cardCount)
-        setCharacters(selected)
-      })
-  }
+  const game = useGame()
 
   return (
     <>
       <Background />
 
-      {gameState === "idle" &&
+      {game.state.gameState === "idle" &&
         <Homepage
-          onStartGame={handleStartGame}
+          onStartGame={game.actions.handleStartGame}
         />
       }
 
-      {isGameScreen &&
+      {game.state.isGameScreen &&
         <>
           <header
             className="
@@ -97,7 +34,7 @@ export const App = () => {
             "
           >
             <button
-              onClick={handleBackToHome}
+              onClick={game.actions.handleBackToHome}
               className="
               text-sm
               text-slate-200
@@ -115,24 +52,24 @@ export const App = () => {
               Back
             </button>
             <Score
-              currentScore={currentScore}
-              highScore={highScore}
+              currentScore={game.state.currentScore}
+              highScore={game.state.highScore}
             />
           </header>
           <main
             className="flex flex-col"
           >
             <Gameboard
-              characters={characters}
-              onCardClick={handleCardClick}
+              characters={game.state.characters}
+              onCardClick={game.actions.handleCardClick}
             />
           </main>
         </>
       }
 
-      {gameState === "ended" &&
+      {game.state.gameState === "ended" &&
         <Gameover
-          onTryAgain={handleTryAgain}
+          onTryAgain={game.actions.handleTryAgain}
         />
       }
     </>
