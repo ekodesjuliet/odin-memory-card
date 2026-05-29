@@ -1,7 +1,7 @@
 import { Footer } from "./Footer"
 import { GameTitle } from "./GameTitle"
 import { DifficultySelector } from "./DifficultySelector"
-import type { Difficulty } from "./App"
+import type { Difficulty } from "./difficulty"
 
 type HomePageProps = {
   onStartGame: (difficulty: Difficulty) => void
@@ -22,7 +22,7 @@ export const Homepage = ({ onStartGame }: HomePageProps) => (
     </header>
 
     <DifficultySelector
-      onStartGame={onStartGame}
+      onDifficultySelect={onStartGame}
     />
 
     <Footer />

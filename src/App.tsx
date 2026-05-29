@@ -21,12 +21,12 @@ export const App = () => {
 
   const currentScore = clickedCards.size
 
-  const startGame = (difficulty: Difficulty) => {
+  const handleStartGame = (difficulty: Difficulty) => {
     setDifficulty(difficulty)
     setGameState("active")
   }
 
-  const onCardClick = (id: number) => {
+  const handleCardClick = (id: number) => {
     if (gameState === "ended") return
 
     if (clickedCards.has(id)) {
@@ -48,10 +48,10 @@ export const App = () => {
     if (difficulty === null) return
 
     setClickedCards(new Set())
-    startGame(difficulty)
+    handleStartGame(difficulty)
   }
 
-  const onBackButton = () => {
+  const handleBackToHome = () => {
     setGameState("idle")
     setClickedCards(new Set())
     setCharacters([])
@@ -77,7 +77,7 @@ export const App = () => {
 
       {gameState === "idle" &&
         <Homepage
-          onStartGame={startGame}
+          onStartGame={handleStartGame}
         />
       }
 
@@ -97,7 +97,7 @@ export const App = () => {
             "
           >
             <button
-              onClick={onBackButton}
+              onClick={handleBackToHome}
               className="
               text-sm
               text-slate-200
@@ -124,7 +124,7 @@ export const App = () => {
           >
             <Gameboard
               characters={characters}
-              onCardClick={onCardClick}
+              onCardClick={handleCardClick}
             />
           </main>
         </>

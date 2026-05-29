@@ -2,17 +2,17 @@ import type { Difficulty } from "./difficulty"
 import { DIFFICULTY_CONFIG } from "./difficulty"
 
 type DifficultySelectorProps = {
-  onStartGame: (difficulty: Difficulty) => void
+  onDifficultySelect: (difficulty: Difficulty) => void
 }
 
-export const DifficultySelector = ({ onStartGame }: DifficultySelectorProps) => (
+export const DifficultySelector = ({ onDifficultySelect }: DifficultySelectorProps) => (
   <section className="flex flex-col gap-10 text-xl mt-22 items-center">
 
     {DIFFICULTY_CONFIG.map(config => (
       <button
         key={config.difficulty}
         type="button"
-        onClick={() => onStartGame(config.difficulty)}
+        onClick={() => onDifficultySelect(config.difficulty)}
         className="
         w-40 md:w-60
         md:p-2
