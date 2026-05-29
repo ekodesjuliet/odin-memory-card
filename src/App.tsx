@@ -1,6 +1,7 @@
 import { Homepage } from "./Homepage"
 import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
+import { GameHeader } from "./GameHeader";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
 import { useGame } from "./useGame"
@@ -20,42 +21,15 @@ export const App = () => {
 
       {game.state.isGameScreen &&
         <>
-          <header
-            className="
-            relative
-            z-10
-            mt-5
-            w-full
-            flex
-            items-center
-            justify-between
-            px-6
-            gap-4
-            "
-          >
-            <button
-              onClick={game.actions.handleBackToHome}
-              className="
-              text-sm
-              text-slate-200
-              bg-slate-900/70
-              px-3
-              py-1.5
-              rounded-md
-              border
-              border-slate-800
-              hover:bg-slate-700/60
-              transition-colors
-              cursor-pointer
-              "
-            >
-              Back
-            </button>
-            <Score
-              currentScore={game.state.currentScore}
-              highScore={game.state.highScore}
-            />
-          </header>
+          <GameHeader
+            onBack={game.actions.handleBackToHome}
+            score={
+              <Score
+                currentScore={game.state.currentScore}
+                highScore={game.state.highScore}
+              />
+            }
+          />
           <main
             className="flex flex-col"
           >
