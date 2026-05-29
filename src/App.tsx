@@ -17,8 +17,9 @@ export const App = () => {
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null)
   const [characters, setCharacters] = useState<Character[]>([])
   const [clickedCards, setClickedCards] = useState<Set<number>>(new Set())
-  const [currentScore, setCurrentScore] = useState<number>(0)
   const [highScore, setHighScore] = useState<number>(0)
+
+  const currentScore = clickedCards.size
 
   const startGame = (difficulty: Difficulty) => {
     setDifficulty(difficulty)
@@ -33,31 +34,25 @@ export const App = () => {
       return
     }
 
-    setClickedCards(prevSet => {
-      const nextSet = new Set(prevSet)
-      nextSet.add(id)
+    const nextSet = new Set(clickedCards)
+    nextSet.add(id)
 
-      return nextSet
-    })
+    setClickedCards(nextSet)
 
-    const nextScore = currentScore + 1
+    setHighScore(prev => Math.max(prev, nextSet.size))
 
     setCharacters(prev => shuffleCharacters(prev))
-    setCurrentScore(nextScore)
-    setHighScore(prev => Math.max(prev, nextScore))
   }
 
   const restartGame = () => {
     if (difficulty === null) return
 
-    setCurrentScore(0)
     setClickedCards(new Set())
     startGame(difficulty)
   }
 
   const onBackButton = () => {
     setGameState("idle")
-    setCurrentScore(0)
     setClickedCards(new Set())
     setCharacters([])
     setDifficulty(null)
