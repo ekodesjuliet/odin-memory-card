@@ -6,6 +6,7 @@ import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
+import { shuffleCharacters } from "./shuffleCharacters"
 
 type GameState = "idle" | "active" | "ended"
 export type Difficulty = typeof DIFFICULTY_CONFIG[number]["difficulty"]
@@ -27,17 +28,6 @@ export const DIFFICULTY_CONFIG = [
     displayName: "Rick"
   }
 ] as const
-
-const shuffleCharacters = (characters: Character[]) => {
-  const shuffled = [...characters]
-
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  return shuffled
-}
 
 export const App = () => {
   const [gameState, setGameState] = useState<GameState>("idle")
