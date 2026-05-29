@@ -101,7 +101,7 @@ export const App = () => {
         const selected = data.slice(0, config?.cardCount)
         setCharacters(selected)
       })
-  }, [gameState])
+  }, [gameState, difficulty])
 
   return (
     <>
