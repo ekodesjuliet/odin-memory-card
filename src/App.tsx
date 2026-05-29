@@ -20,6 +20,7 @@ export const App = () => {
   const [highScore, setHighScore] = useState<number>(0)
 
   const currentScore = clickedCards.size
+  const isGameScreen = gameState !== "idle"
 
   const handleStartGame = (difficulty: Difficulty) => {
     setGameState("active")
@@ -80,7 +81,7 @@ export const App = () => {
         />
       }
 
-      {(gameState === "active" || gameState === "ended") && difficulty !== null &&
+      {isGameScreen &&
         <>
           <header
             className="
