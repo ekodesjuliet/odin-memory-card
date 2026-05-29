@@ -7,27 +7,10 @@ import { Score } from "./Score";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
 import { shuffleCharacters } from "./shuffleCharacters"
+import type { Difficulty } from "./difficulty"
+import { DIFFICULTY_CONFIG } from "./difficulty"
 
 type GameState = "idle" | "active" | "ended"
-export type Difficulty = typeof DIFFICULTY_CONFIG[number]["difficulty"]
-
-export const DIFFICULTY_CONFIG = [
-  {
-    difficulty: "easy",
-    cardCount: 8,
-    displayName: "Morty"
-  },
-  {
-    difficulty: "medium",
-    cardCount: 12,
-    displayName: "Summer"
-  },
-  {
-    difficulty: "hard",
-    cardCount: 20,
-    displayName: "Rick"
-  }
-] as const
 
 export const App = () => {
   const [gameState, setGameState] = useState<GameState>("idle")

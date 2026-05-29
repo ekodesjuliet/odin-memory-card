@@ -1,5 +1,5 @@
-import type { Difficulty } from "./App"
-import { DIFFICULTY_CONFIG } from "./App"
+import type { Difficulty } from "./difficulty"
+import { DIFFICULTY_CONFIG } from "./difficulty"
 
 type DifficultySelectorProps = {
   onStartGame: (difficulty: Difficulty) => void
