@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Homepage } from "./Homepage"
 import type { Character } from "./character"
 import { fetchCharacters } from "./characterService"
@@ -22,8 +22,9 @@ export const App = () => {
   const currentScore = clickedCards.size
 
   const handleStartGame = (difficulty: Difficulty) => {
-    setDifficulty(difficulty)
     setGameState("active")
+    setDifficulty(difficulty)
+    loadCharacters(difficulty)
   }
 
   const handleCardClick = (id: number) => {
@@ -68,12 +69,6 @@ export const App = () => {
         setCharacters(selected)
       })
   }
-
-  useEffect(() => {
-    if (gameState !== "active" || difficulty === null) return
-
-    loadCharacters(difficulty)
-  }, [gameState, difficulty])
 
   return (
     <>
