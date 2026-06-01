@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Button } from "./Button";
 
 type GameHeaderProps = {
   onBack: () => void
@@ -19,24 +20,9 @@ export const GameHeader = ({ onBack, score }: GameHeaderProps) => (
             gap-4
             "
   >
-    <button
-      onClick={onBack}
-      className="
-              text-sm
-              text-slate-200
-              bg-slate-900/70
-              px-3
-              py-1.5
-              rounded-md
-              border
-              border-slate-800
-              hover:bg-slate-700/60
-              transition-colors
-              cursor-pointer
-              "
-    >
+    <Button onClick={onBack}>
       Back
-    </button>
+    </Button>
     {score}
-  </header>
+  </header >
 )

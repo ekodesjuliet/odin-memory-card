@@ -1,3 +1,5 @@
+import { Button } from "./Button";
+
 type GameoverProps = {
   onTryAgain: () => void;
 };
@@ -9,12 +11,11 @@ export const Gameover = ({ onTryAgain }: GameoverProps) => (
         Memory is fragile. Yours just proved it.
       </p>
 
-      <button
-        onClick={onTryAgain}
-        className="mt-6 rounded-xl bg-emerald-500 px-5 py-3 text-xs font-semibold text-slate-950 transition-all duration-200 hover:scale-105 hover:bg-emerald-400 active:scale-95 cursor-pointer"
-      >
-        Try Again, Morty
-      </button>
+      <div className="pt-2">
+        <Button onClick={onTryAgain}>
+          Try Again, Morty
+        </Button>
+      </div>
     </div>
   </div>
 );
