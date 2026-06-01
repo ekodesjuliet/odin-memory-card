@@ -7,15 +7,15 @@ export const Score = ({ currentScore, highScore }: ScoreProps) => (
   <section
     className="
       flex
-      flex-col
-      gap-1
+      place-content-between
+      md:gap-1
       rounded-md
       bg-slate-900/70
       px-4
       py-3
       border
       border-slate-800
-      md:w-50 lg:w-70
+      w-full md:w-80
     "
   >
     <p className="text-sm text-lime-400">
