@@ -21,10 +21,13 @@ export const App = () => {
         src={audio.state.bgMusic}>
       </audio>
 
-      <HeaderActions
-        isMuted={audio.state.isMuted}
-        onToggleMute={audio.actions.handleToggleMute}
-      />
+      {!game.state.isGameScreen &&
+        <HeaderActions
+          isGameScreen={game.state.isGameScreen}
+          isMuted={audio.state.isMuted}
+          onToggleMute={audio.actions.handleToggleMute}
+        />
+      }
 
       {game.state.gameState === "idle" &&
         <Homepage
@@ -36,6 +39,12 @@ export const App = () => {
         <>
           <GameHeader
             onBack={game.actions.handleBackToHome}
+            actions={
+              <HeaderActions
+                isMuted={audio.state.isMuted}
+                onToggleMute={audio.actions.handleToggleMute}
+              />
+            }
             score={
               <Score
                 currentScore={game.state.currentScore}
