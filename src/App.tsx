@@ -6,13 +6,20 @@ import { Gameover } from "./Gameover"
 import { Background } from "./Background"
 import { useGame } from "./useGame"
 import { HeaderActions } from "./HeaderActions";
+import { useAudio } from "./useAudio";
 
 export const App = () => {
   const game = useGame()
+  const audio = useAudio()
 
   return (
     <>
       <Background />
+
+      <audio
+        ref={audio.state.audioRef}
+        src={audio.state.bgMusic}>
+      </audio>
 
       <HeaderActions
         isMuted={audio.state.isMuted}
