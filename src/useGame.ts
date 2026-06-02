@@ -13,6 +13,7 @@ export const useGame = () => {
   const [characters, setCharacters] = useState<Character[]>([])
   const [clickedCards, setClickedCards] = useState<Set<number>>(new Set())
   const [highScore, setHighScore] = useState<number>(0)
+  const [isHelpOpen, setIsHelpOpen] = useState<boolean>(false)
 
   const currentScore = clickedCards.size
   const isGameScreen = gameState !== "idle"
@@ -64,6 +65,10 @@ export const useGame = () => {
     setCharacters(selected)
   }
 
+  const handleToggleHelp = () => {
+    setIsHelpOpen(prev => !prev)
+  }
+
   return {
     state: {
       gameState,
@@ -72,13 +77,15 @@ export const useGame = () => {
       clickedCards,
       highScore,
       currentScore,
-      isGameScreen
+      isGameScreen,
+      isHelpOpen
     },
     actions: {
       handleStartGame,
       handleTryAgain,
       handleBackToHome,
       handleCardClick,
+      handleToggleHelp
     }
   }
 }
