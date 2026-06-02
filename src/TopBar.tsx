@@ -12,7 +12,7 @@ type GameHeaderProps = {
 export const TopBar = ({ onBack, isMuted, onToggleMute, isGameScreen, onToggleHelp }: GameHeaderProps) => (
   <header
     className={
-      `flex w-full items-center mt-6 relative z-10 px-6 ${isGameScreen ? "justify-between" : "justify-end"
+      `flex w-full items-center mt-6 relative z-10 px-6 2xl:px-10 ${isGameScreen ? "justify-between" : "justify-end"
       }`}
   >
 
@@ -22,23 +22,23 @@ export const TopBar = ({ onBack, isMuted, onToggleMute, isGameScreen, onToggleHe
       </Button>
     }
 
-    <div className="flex gap-3">
+    <div className="flex gap-6">
       {
         isMuted
           ? <VolumeMute
-            size="xs"
+            size="sm"
             className="text-lime-400 cursor-pointer"
             onClick={onToggleMute}
           />
           : <VolumeFull
-            size="xs"
+            size="sm"
             className="text-lime-400 cursor-pointer"
             onClick={onToggleMute}
           />
       }
 
       <HelpCircle
-        size="xs"
+        size="sm"
         className="text-lime-400 cursor-pointer"
         onClick={onToggleHelp}
       />
