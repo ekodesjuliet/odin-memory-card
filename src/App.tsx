@@ -2,11 +2,11 @@ import { Homepage } from "./Homepage"
 import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
 import { TopBar } from "./TopBar";
-import { Gameover } from "./Gameover"
+import { GameOverModal } from "./GameOverModal"
 import { Background } from "./Background"
 import { useGame } from "./useGame"
 import { useAudio } from "./useAudio";
-import { Button } from "./Button";
+import { HelpModal } from "./HelpModal";
 
 export const App = () => {
   const game = useGame()
@@ -30,19 +30,9 @@ export const App = () => {
       />
 
       {game.state.isHelpOpen &&
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-2xl border border-slate-700 bg-slate-900 p-8 text-center shadow-2xl">
-            <p className="text-xs font-semibold text-slate-100">
-              Get points by clicking on an image but don't click on any more than once!
-            </p>
-
-            <div className="pt-2">
-              <Button onClick={game.actions.handleToggleHelp}>
-                Okey dokey!
-              </Button>
-            </div>
-          </div>
-        </div>
+        <HelpModal
+          onClick={game.actions.handleToggleHelp}
+        />
       }
 
       {game.state.gameState === "idle" &&
@@ -71,7 +61,7 @@ export const App = () => {
       }
 
       {game.state.gameState === "ended" &&
-        <Gameover
+        <GameOverModal
           onTryAgain={game.actions.handleTryAgain}
         />
       }
