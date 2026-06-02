@@ -4,9 +4,10 @@ import { Button } from "./Button";
 type GameHeaderProps = {
   onBack: () => void
   score: ReactNode
+  actions: ReactNode
 }
 
-export const GameHeader = ({ onBack, score }: GameHeaderProps) => (
+export const GameHeader = ({ onBack, actions, score }: GameHeaderProps) => (
   <header
     className="
             relative
@@ -21,10 +22,11 @@ export const GameHeader = ({ onBack, score }: GameHeaderProps) => (
             gap-4
             "
   >
-    <div className="self-start">
+    <div className="flex place-content-between w-full items-center">
       <Button onClick={onBack}>
         Back
       </Button>
+      {actions}
     </div>
     {score}
   </header >
