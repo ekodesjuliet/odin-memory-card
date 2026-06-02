@@ -9,7 +9,6 @@ type GameboardProps = {
 export const Gameboard = ({ characters, onCardClick }: GameboardProps) => (
   <section
     className="
-    m-6
     grid
     gap-10
     grid-cols-2 md:grid-cols-3 xl:grid-cols-5

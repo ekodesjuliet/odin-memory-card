@@ -7,8 +7,8 @@ export const Score = ({ currentScore, highScore }: ScoreProps) => (
   <section
     className="
       flex
+      self-center
       place-content-between
-      md:gap-1
       rounded-md
       bg-slate-900/70
       px-4
@@ -16,6 +16,7 @@ export const Score = ({ currentScore, highScore }: ScoreProps) => (
       border
       border-slate-800
       w-full md:w-80
+      z-10
     "
   >
     <p className="text-sm text-lime-400">

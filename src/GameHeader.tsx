@@ -3,11 +3,10 @@ import { Button } from "./Button";
 
 type GameHeaderProps = {
   onBack: () => void
-  score: ReactNode
   actions: ReactNode
 }
 
-export const GameHeader = ({ onBack, actions, score }: GameHeaderProps) => (
+export const GameHeader = ({ onBack, actions }: GameHeaderProps) => (
   <header
     className="
             relative
@@ -28,6 +27,5 @@ export const GameHeader = ({ onBack, actions, score }: GameHeaderProps) => (
       </Button>
       {actions}
     </div>
-    {score}
   </header >
 )

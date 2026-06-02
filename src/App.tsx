@@ -45,16 +45,16 @@ export const App = () => {
                 onToggleMute={audio.actions.handleToggleMute}
               />
             }
-            score={
-              <Score
-                currentScore={game.state.currentScore}
-                highScore={game.state.highScore}
-              />
-            }
           />
           <main
-            className="flex flex-col"
+            className="flex flex-col m-6 gap-6"
           >
+
+            <Score
+              currentScore={game.state.currentScore}
+              highScore={game.state.highScore}
+            />
+
             <Gameboard
               characters={game.state.characters}
               onCardClick={game.actions.handleCardClick}
