@@ -5,6 +5,7 @@ import { GameHeader } from "./GameHeader";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
 import { useGame } from "./useGame"
+import { HeaderActions } from "./HeaderActions";
 
 export const App = () => {
   const game = useGame()
@@ -12,6 +13,11 @@ export const App = () => {
   return (
     <>
       <Background />
+
+      <HeaderActions
+        isMuted={audio.state.isMuted}
+        onToggleMute={audio.actions.handleToggleMute}
+      />
 
       {game.state.gameState === "idle" &&
         <Homepage
