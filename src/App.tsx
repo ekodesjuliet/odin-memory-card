@@ -1,11 +1,10 @@
 import { Homepage } from "./Homepage"
 import { Gameboard } from "./Gameboard"
 import { Score } from "./Score";
-import { GameHeader } from "./GameHeader";
+import { TopBar } from "./TopBar";
 import { Gameover } from "./Gameover"
 import { Background } from "./Background"
 import { useGame } from "./useGame"
-import { HeaderActions } from "./HeaderActions";
 import { useAudio } from "./useAudio";
 
 export const App = () => {
@@ -21,13 +20,12 @@ export const App = () => {
         src={audio.state.bgMusic}>
       </audio>
 
-      {!game.state.isGameScreen &&
-        <HeaderActions
-          isGameScreen={game.state.isGameScreen}
-          isMuted={audio.state.isMuted}
-          onToggleMute={audio.actions.handleToggleMute}
-        />
-      }
+      <TopBar
+        isGameScreen={game.state.isGameScreen}
+        onBack={game.actions.handleBackToHome}
+        isMuted={audio.state.isMuted}
+        onToggleMute={audio.actions.handleToggleMute}
+      />
 
       {game.state.gameState === "idle" &&
         <Homepage
@@ -37,15 +35,6 @@ export const App = () => {
 
       {game.state.isGameScreen &&
         <>
-          <GameHeader
-            onBack={game.actions.handleBackToHome}
-            actions={
-              <HeaderActions
-                isMuted={audio.state.isMuted}
-                onToggleMute={audio.actions.handleToggleMute}
-              />
-            }
-          />
           <main
             className="flex flex-col m-6 gap-6"
           >

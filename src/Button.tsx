@@ -15,7 +15,6 @@ export const Button = ({ onClick, children }: ButtonProps) => (
       duration-200
       font-medium
       select-none
-      mt-6
       text-xs
       text-black
       bg-lime-400/90
