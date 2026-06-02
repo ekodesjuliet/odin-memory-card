@@ -1,4 +1,4 @@
-import { VolumeMute, VolumeFull, HelpCircle } from "@boxicons/react"
+import { VolumeMute, VolumeFull, HelpCircle, ArrowLeftStroke } from "@boxicons/react"
 import { Button } from "./Button";
 
 type GameHeaderProps = {
@@ -17,31 +17,39 @@ export const TopBar = ({ onBack, isMuted, onToggleMute, isGameScreen, onToggleHe
   >
 
     {isGameScreen &&
-      <Button onClick={onBack}>
-        Back
+      <Button onClick={onBack} variant="icon">
+        <ArrowLeftStroke
+          size="md"
+          className="text-lime-400 cursor-pointer"
+        />
       </Button>
     }
 
     <div className="flex gap-6">
       {
         isMuted
-          ? <VolumeMute
-            size="sm"
-            className="text-lime-400 cursor-pointer"
-            onClick={onToggleMute}
-          />
-          : <VolumeFull
-            size="sm"
-            className="text-lime-400 cursor-pointer"
-            onClick={onToggleMute}
-          />
+          ?
+          <Button onClick={onToggleMute} variant="icon">
+            <VolumeMute
+              size="sm"
+              className="text-lime-400 cursor-pointer"
+            />
+          </Button>
+          :
+          <Button onClick={onToggleMute} variant="icon">
+            <VolumeFull
+              size="sm"
+              className="text-lime-400 cursor-pointer"
+            />
+          </Button>
       }
 
-      <HelpCircle
-        size="sm"
-        className="text-lime-400 cursor-pointer"
-        onClick={onToggleHelp}
-      />
+      <Button onClick={onToggleHelp} variant="icon">
+        <HelpCircle
+          size="sm"
+          className="text-lime-400 cursor-pointer"
+        />
+      </Button>
     </div>
   </header>
 )
