@@ -8,12 +8,12 @@ type GameOverModalProps = {
 export const GameOverModal = ({ onTryAgain }: GameOverModalProps) => (
   <Modal>
     <p className="text-sm font-semibold text-slate-100">
-      Your brain couldn’t handle a simple pattern.
+      You lost a memory game. That’s honestly kind of embarrassing.
     </p>
 
     <div className="pt-2">
       <Button onClick={onTryAgain}>
-        Run it back!
+        Fine.
       </Button>
     </div>
   </Modal>
