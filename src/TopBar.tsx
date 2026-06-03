@@ -5,18 +5,18 @@ type GameHeaderProps = {
   onBack: () => void
   isMuted: boolean,
   onToggleMute: () => void,
-  isGameScreen: boolean,
+  showBackButton: boolean,
   onToggleHelp: () => void
 }
 
-export const TopBar = ({ onBack, isMuted, onToggleMute, isGameScreen, onToggleHelp }: GameHeaderProps) => (
+export const TopBar = ({ onBack, isMuted, onToggleMute, showBackButton, onToggleHelp }: GameHeaderProps) => (
   <header
     className={
-      `flex w-full items-center mt-6 relative z-10 px-6 2xl:px-10 ${isGameScreen ? "justify-between" : "justify-end"
+      `flex w-full items-center mt-6 relative z-10 px-6 2xl:px-10 ${showBackButton ? "justify-between" : "justify-end"
       }`}
   >
 
-    {isGameScreen &&
+    {showBackButton &&
       <Button onClick={onBack} variant="icon">
         <ArrowLeftStroke
           size="md"

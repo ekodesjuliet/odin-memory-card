@@ -22,7 +22,7 @@ export const App = () => {
       </audio>
 
       <TopBar
-        isGameScreen={game.state.isGameScreen}
+        showBackButton={game.state.isGameScreen}
         onBack={game.actions.handleBackToHome}
         isMuted={audio.state.isMuted}
         onToggleMute={audio.actions.handleToggleMute}
