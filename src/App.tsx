@@ -31,6 +31,7 @@ export const App = () => {
 
       {game.state.isHelpOpen &&
         <HelpModal
+          isPlaying={game.state.isGameScreen}
           onClick={game.actions.handleToggleHelp}
         />
       }
