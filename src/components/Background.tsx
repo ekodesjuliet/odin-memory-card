@@ -1,4 +1,5 @@
 import liveBg from "../assets/bg/live-bg.mp4"
+import poster from "../assets/bg/poster.png"
 
 export const Background = () => (
   <video
@@ -6,6 +7,7 @@ export const Background = () => (
     muted
     loop
     playsInline
+    poster={poster}
     className="
       w-full 
       h-full
