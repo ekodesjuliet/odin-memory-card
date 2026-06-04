@@ -1,4 +1,4 @@
-import type { Character } from './character'
+import type { Character } from '../types/character'
 
 export const shuffleCharacters = (characters: Character[]) => {
     const shuffled = [...characters]

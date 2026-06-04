@@ -1,7 +1,7 @@
 import { Footer } from './Footer'
 import { GameTitle } from './GameTitle'
 import { DifficultySelector } from './DifficultySelector'
-import type { Difficulty } from './difficulty'
+import type { Difficulty } from '../types/difficulty'
 
 type HomePageProps = {
     onStartGame: (difficulty: Difficulty) => void

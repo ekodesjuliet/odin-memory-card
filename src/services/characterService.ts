@@ -1,4 +1,4 @@
-import type { Character } from './character'
+import type { Character } from '../types/character'
 import { fetchApiCharacters } from './rickAndMortyApi'
 
 export const fetchCharacters = async (): Promise<Character[]> => {
