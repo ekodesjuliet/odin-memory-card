@@ -1,11 +1,11 @@
 type ScoreProps = {
-  currentScore: number,
-  highScore: number
+    currentScore: number
+    highScore: number
 }
 
 export const Score = ({ currentScore, highScore }: ScoreProps) => (
-  <section
-    className="
+    <section
+        className="
       flex
       self-center
       place-content-between
@@ -18,13 +18,15 @@ export const Score = ({ currentScore, highScore }: ScoreProps) => (
       w-full md:w-80
       z-10
     "
-  >
-    <p className="text-sm text-lime-400">
-      Score: <span className="text-slate-100 font-medium">{currentScore}</span>
-    </p>
+    >
+        <p className="text-sm text-lime-400">
+            Score:{' '}
+            <span className="text-slate-100 font-medium">{currentScore}</span>
+        </p>
 
-    <p className="text-sm text-cyan-400">
-      Best: <span className="text-slate-100 font-medium">{highScore}</span>
-    </p>
-  </section>
+        <p className="text-sm text-cyan-400">
+            Best:{' '}
+            <span className="text-slate-100 font-medium">{highScore}</span>
+        </p>
+    </section>
 )

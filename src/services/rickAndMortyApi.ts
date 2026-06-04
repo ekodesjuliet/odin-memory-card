@@ -1,21 +1,21 @@
 export type ApiCharacter = {
-  id: number,
-  name: string,
-  image: string
+    id: number
+    name: string
+    image: string
 }
 
 type ApiResponse = {
-  results: ApiCharacter[]
+    results: ApiCharacter[]
 }
 
 export const fetchApiCharacters = async (): Promise<ApiResponse> => {
-  const page = Math.floor(Math.random() * 41) + 1
+    const page = Math.floor(Math.random() * 41) + 1
 
-  const response = await fetch(`/api/character/?page=${page}`)
+    const response = await fetch(`/api/character/?page=${page}`)
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch characters.")
-  }
+    if (!response.ok) {
+        throw new Error('Failed to fetch characters.')
+    }
 
-  return response.json()
+    return response.json()
 }

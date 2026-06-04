@@ -1,24 +1,24 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-  font-family: "Display";
-  src: url("/fonts/display.ttf") format("truetype");
+    font-family: 'Display';
+    src: url('/fonts/display.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Body";
-  src: url("/fonts/body.ttf") format("truetype");
+    font-family: 'Body';
+    src: url('/fonts/body.ttf') format('truetype');
 }
 
 h1 {
-  font-family: "Display", monospace;
+    font-family: 'Display', monospace;
 }
 
 body {
-  font-family: "Body", monospace;
+    font-family: 'Body', monospace;
 }
 
 ::before,
 ::after {
-  font-family: monospace
+    font-family: monospace;
 }

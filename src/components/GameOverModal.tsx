@@ -1,20 +1,18 @@
-import { Button } from "./Button";
-import { Modal } from "./Modal";
+import { Button } from './Button'
+import { Modal } from './Modal'
 
 type GameOverModalProps = {
-  onTryAgain: () => void;
-};
+    onTryAgain: () => void
+}
 
 export const GameOverModal = ({ onTryAgain }: GameOverModalProps) => (
-  <Modal>
-    <p className="text-sm font-semibold text-slate-100">
-      You lost a memory game. That’s honestly kind of embarrassing.
-    </p>
+    <Modal>
+        <p className="text-sm font-semibold text-slate-100">
+            You lost a memory game. That’s honestly kind of embarrassing.
+        </p>
 
-    <div className="pt-2">
-      <Button onClick={onTryAgain}>
-        Fine.
-      </Button>
-    </div>
-  </Modal>
-);
+        <div className="pt-2">
+            <Button onClick={onTryAgain}>Fine.</Button>
+        </div>
+    </Modal>
+)

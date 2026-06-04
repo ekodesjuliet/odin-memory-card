@@ -1,17 +1,21 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from 'react'
 
 type ButtonProps = {
-  onClick: () => void
-  children: ReactNode
-  variant?: "modal" | "icon"
+    onClick: () => void
+    children: ReactNode
+    variant?: 'modal' | 'icon'
 }
 
-export const Button = ({ onClick, children, variant = "modal" }: ButtonProps) => {
-  const base =
-    "cursor-pointer transition-all duration-200 select-none font-medium"
+export const Button = ({
+    onClick,
+    children,
+    variant = 'modal',
+}: ButtonProps) => {
+    const base =
+        'cursor-pointer transition-all duration-200 select-none font-medium'
 
-  const variants = {
-    modal: `
+    const variants = {
+        modal: `
       text-xs
       text-black
       bg-lime-400/90
@@ -23,7 +27,7 @@ export const Button = ({ onClick, children, variant = "modal" }: ButtonProps) =>
       hover:scale-[1.03]
       active:scale-[0.98]
     `,
-    icon: `
+        icon: `
       w-11 h-11
       flex items-center justify-center
       rounded-xl
@@ -32,15 +36,15 @@ export const Button = ({ onClick, children, variant = "modal" }: ButtonProps) =>
       hover:scale-[1.05]
       active:scale-[0.95]
     `,
-  }
+    }
 
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`${base} ${variants[variant]}`}
-    >
-      {children}
-    </button>
-  )
+    return (
+        <button
+            type="button"
+            onClick={onClick}
+            className={`${base} ${variants[variant]}`}
+        >
+            {children}
+        </button>
+    )
 }

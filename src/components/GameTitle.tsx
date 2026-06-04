@@ -1,6 +1,6 @@
 export const GameTitle = () => (
-  <h1
-    className="
+    <h1
+        className="
       text-center
       text-7xl min-[375px]:text-8xl md:text-9xl
       tracking-tight md:tracking-tighter
@@ -9,7 +9,7 @@ export const GameTitle = () => (
       text-[#A2E81A]
       drop-shadow-[3px_3px_0_#00B0FF]
     "
-  >
-    Memory Game
-  </h1>
+    >
+        Memory Game
+    </h1>
 )

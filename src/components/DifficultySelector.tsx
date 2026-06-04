@@ -1,19 +1,20 @@
-import type { Difficulty } from "../types/difficulty"
-import { DIFFICULTY_CONFIG } from "../types/difficulty"
+import type { Difficulty } from '../types/difficulty'
+import { DIFFICULTY_CONFIG } from '../types/difficulty'
 
 type DifficultySelectorProps = {
-  onDifficultySelect: (difficulty: Difficulty) => void
+    onDifficultySelect: (difficulty: Difficulty) => void
 }
 
-export const DifficultySelector = ({ onDifficultySelect }: DifficultySelectorProps) => (
-  <section className="flex flex-col gap-10 text-xl mt-22 items-center">
-
-    {DIFFICULTY_CONFIG.map(config => (
-      <button
-        key={config.difficulty}
-        type="button"
-        onClick={() => onDifficultySelect(config.difficulty)}
-        className="
+export const DifficultySelector = ({
+    onDifficultySelect,
+}: DifficultySelectorProps) => (
+    <section className="flex flex-col gap-10 text-xl mt-22 items-center">
+        {DIFFICULTY_CONFIG.map((config) => (
+            <button
+                key={config.difficulty}
+                type="button"
+                onClick={() => onDifficultySelect(config.difficulty)}
+                className="
         w-40 md:w-60
         md:p-2
         rounded-sm
@@ -27,8 +28,9 @@ export const DifficultySelector = ({ onDifficultySelect }: DifficultySelectorPro
         hover:shadow-[0_0_12px_#39ff14]
         group
         "
-      >
-        <span className="
+            >
+                <span
+                    className="
           relative z-10
           flex justify-between
           before:content-['[']
@@ -41,12 +43,13 @@ export const DifficultySelector = ({ onDifficultySelect }: DifficultySelectorPro
           group-hover:after:text-white
           md:text-2xl
           items-center
-          ">
-          {config.displayName}
-        </span>
+          "
+                >
+                    {config.displayName}
+                </span>
 
-        <span
-          className="
+                <span
+                    className="
           absolute inset-0
           origin-center
           bg-green-400
@@ -56,9 +59,8 @@ export const DifficultySelector = ({ onDifficultySelect }: DifficultySelectorPro
           group-hover:scale-x-100
           pointer-events-none
           "
-        />
-      </button>
-    ))}
-
-  </section >
+                />
+            </button>
+        ))}
+    </section>
 )

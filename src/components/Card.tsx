@@ -1,13 +1,13 @@
-import type { Character } from "../types/character.ts"
+import type { Character } from '../types/character.ts'
 
 type CardProps = {
-  character: Character
-  onCardClick: (id: number) => void
+    character: Character
+    onCardClick: (id: number) => void
 }
 
 export const Card = ({ character, onCardClick }: CardProps) => (
-  <article
-    className="
+    <article
+        className="
       flex
       flex-col
       items-center
@@ -16,11 +16,11 @@ export const Card = ({ character, onCardClick }: CardProps) => (
       z-10
       group
     "
-  >
-    <button
-      type="button"
-      onClick={() => onCardClick(character.id)}
-      className="
+    >
+        <button
+            type="button"
+            onClick={() => onCardClick(character.id)}
+            className="
         relative
         flex
         flex-col
@@ -38,9 +38,9 @@ export const Card = ({ character, onCardClick }: CardProps) => (
         hover:shadow-[0_0_25px_rgba(0,255,200,0.35)]
         hover:border-[#00B0FF]
       "
-    >
-      <div
-        className="
+        >
+            <div
+                className="
           absolute
           inset-0
           bg-linear-to-tl
@@ -48,10 +48,10 @@ export const Card = ({ character, onCardClick }: CardProps) => (
           opacity-80
           group-hover:opacity-60
         "
-      />
+            />
 
-      <img
-        className="
+            <img
+                className="
           w-full
           transition-all
           duration-500
@@ -59,12 +59,12 @@ export const Card = ({ character, onCardClick }: CardProps) => (
           group-hover:rotate-1
           group-hover:saturate-150
         "
-        src={character.image}
-        alt={character.name}
-      />
+                src={character.image}
+                alt={character.name}
+            />
 
-      <p
-        className="
+            <p
+                className="
           relative
           z-10
           px-2
@@ -77,9 +77,9 @@ export const Card = ({ character, onCardClick }: CardProps) => (
           drop-shadow-[0_0_6px_rgba(0,255,100,0.6)]
           group-hover:text-white
         "
-      >
-        {character.name}
-      </p>
-    </button>
-  </article>
+            >
+                {character.name}
+            </p>
+        </button>
+    </article>
 )

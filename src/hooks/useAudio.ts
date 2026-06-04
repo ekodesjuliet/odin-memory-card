@@ -1,26 +1,26 @@
-import { useState, useRef } from "react"
-import bgMusic from "../assets/music/background.mp3"
+import { useState, useRef } from 'react'
+import bgMusic from '../assets/music/background.mp3'
 
 export const useAudio = () => {
-  const [isMuted, setIsMuted] = useState<boolean>(true)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+    const [isMuted, setIsMuted] = useState<boolean>(true)
+    const audioRef = useRef<HTMLAudioElement | null>(null)
 
-  const handleToggleMute = () => {
-    setIsMuted(prev => !prev)
+    const handleToggleMute = () => {
+        setIsMuted((prev) => !prev)
 
-    if (audioRef.current) {
-      if (!isMuted) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
+        if (audioRef.current) {
+            if (!isMuted) {
+                audioRef.current.pause()
+            } else {
+                audioRef.current.play()
+            }
+        }
     }
-  }
 
-  return {
-    audioRef,
-    isMuted,
-    bgMusic,
-    handleToggleMute
-  }
+    return {
+        audioRef,
+        isMuted,
+        bgMusic,
+        handleToggleMute,
+    }
 }
