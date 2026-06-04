@@ -1,4 +1,4 @@
-import type { Character } from "./character"
+import type { Character } from "../types/character.ts"
 
 type CardProps = {
   character: Character

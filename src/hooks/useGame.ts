@@ -1,9 +1,9 @@
 import { useState } from "react";
-import type { Difficulty } from "./difficulty";
-import type { Character } from "./character"
-import { DIFFICULTY_CONFIG } from "./difficulty"
-import { fetchCharacters } from "./characterService"
-import { shuffleCharacters } from "./shuffleCharacters"
+import type { Difficulty } from "../types/difficulty";
+import type { Character } from "../types/character"
+import { DIFFICULTY_CONFIG } from "../types/difficulty"
+import { fetchCharacters } from "../services/characterService"
+import { shuffleCharacters } from "../utils/shuffleCharacters"
 
 type GameState = "idle" | "active" | "ended"
 

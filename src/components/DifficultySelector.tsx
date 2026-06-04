@@ -1,5 +1,5 @@
-import type { Difficulty } from "./difficulty"
-import { DIFFICULTY_CONFIG } from "./difficulty"
+import type { Difficulty } from "../types/difficulty"
+import { DIFFICULTY_CONFIG } from "../types/difficulty"
 
 type DifficultySelectorProps = {
   onDifficultySelect: (difficulty: Difficulty) => void

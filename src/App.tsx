@@ -1,12 +1,12 @@
-import { Homepage } from "./Homepage"
-import { Gameboard } from "./Gameboard"
-import { Score } from "./Score";
-import { TopBar } from "./TopBar";
-import { GameOverModal } from "./GameOverModal"
-import { Background } from "./Background"
-import { useGame } from "./useGame"
-import { useAudio } from "./useAudio";
-import { HelpModal } from "./HelpModal";
+import { Homepage } from "./components/Homepage"
+import { Gameboard } from "./components/Gameboard"
+import { Score } from "./components/Score"
+import { TopBar } from "./components/TopBar";
+import { GameOverModal } from "./components/GameOverModal"
+import { Background } from "./components/Background"
+import { HelpModal } from "./components/HelpModal";
+import { useGame } from "./hooks/useGame"
+import { useAudio } from "./hooks/useAudio";
 
 export const App = () => {
   const game = useGame()

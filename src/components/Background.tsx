@@ -1,4 +1,4 @@
-import liveBg from "./assets/bg/live-bg.mp4"
+import liveBg from "../assets/bg/live-bg.mp4"
 
 export const Background = () => (
   <video
