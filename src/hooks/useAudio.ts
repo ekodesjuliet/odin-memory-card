@@ -18,13 +18,9 @@ export const useAudio = () => {
   }
 
   return {
-    state: {
-      audioRef,
-      isMuted,
-      bgMusic
-    },
-    actions: {
-      handleToggleMute
-    }
+    audioRef,
+    isMuted,
+    bgMusic,
+    handleToggleMute
   }
 }

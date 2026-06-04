@@ -10,22 +10,22 @@ import { useAudio } from "./hooks/useAudio";
 
 export const App = () => {
   const game = useGame()
-  const audio = useAudio()
+  const { audioRef, isMuted, bgMusic, handleToggleMute } = useAudio();
 
   return (
     <>
       <Background />
 
       <audio
-        ref={audio.state.audioRef}
-        src={audio.state.bgMusic}>
+        ref={audioRef}
+        src={bgMusic}>
       </audio>
 
       <TopBar
         showBackButton={game.state.isGameScreen}
         onBack={game.actions.handleBackToHome}
-        isMuted={audio.state.isMuted}
-        onToggleMute={audio.actions.handleToggleMute}
+        isMuted={isMuted}
+        onToggleMute={handleToggleMute}
         onToggleHelp={game.actions.handleToggleHelp}
       />
 
