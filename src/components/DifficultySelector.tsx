@@ -8,58 +8,19 @@ type DifficultySelectorProps = {
 export const DifficultySelector = ({
     onDifficultySelect,
 }: DifficultySelectorProps) => (
-    <section className="flex flex-col gap-10 text-xl mt-22 items-center">
+    <section className="mt-22 flex flex-col items-center gap-10 text-xl">
         {DIFFICULTY_CONFIG.map((config) => (
             <button
                 key={config.difficulty}
                 type="button"
                 onClick={() => onDifficultySelect(config.difficulty)}
-                className="
-        w-40 md:w-60
-        md:p-2
-        rounded-sm
-        bg-green-800
-        text-amber-50
-        cursor-pointer
-        transition-colors duration-300
-        active:scale-95
-        overflow-hidden
-        relative
-        hover:shadow-[0_0_12px_#39ff14]
-        group
-        "
+                className="group relative w-40 cursor-pointer overflow-hidden rounded-sm bg-green-800 text-amber-50 transition-colors duration-300 hover:shadow-[0_0_12px_#39ff14] active:scale-95 md:w-60 md:p-2"
             >
-                <span
-                    className="
-          relative z-10
-          flex justify-between
-          before:content-['[']
-          after:content-[']']
-          md:before:text-2xl
-          md:after:text-2xl
-          before:text-lime-300
-          after:text-lime-300
-          group-hover:before:text-white
-          group-hover:after:text-white
-          md:text-2xl
-          items-center
-          "
-                >
+                <span className="relative z-10 flex items-center justify-between before:text-lime-300 before:content-['['] group-hover:before:text-white after:text-lime-300 after:content-[']'] group-hover:after:text-white md:text-2xl md:before:text-2xl md:after:text-2xl">
                     {config.displayName}
                 </span>
 
-                <span
-                    className="
-          absolute inset-0
-          origin-center
-          bg-green-400
-          opacity-25
-          scale-x-0
-          transition-transform duration-300
-          group-hover:scale-x-100
-          pointer-events-none
-          "
-                />
+                <span className="pointer-events-none absolute inset-0 origin-center scale-x-0 bg-green-400 opacity-25 transition-transform duration-300 group-hover:scale-x-100" />
             </button>
         ))}
     </section>

@@ -39,7 +39,7 @@ export const App = () => {
 
             {game.state.isGameScreen && (
                 <>
-                    <main className="flex flex-col m-6 gap-6">
+                    <main className="m-6 flex flex-col gap-6">
                         <Score
                             currentScore={game.state.currentScore}
                             highScore={game.state.highScore}

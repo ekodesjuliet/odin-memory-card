@@ -2,26 +2,8 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear()
 
     return (
-        <footer
-            className="
-      fixed
-      bottom-2
-      flex
-      w-full
-      justify-center 
-      xl:justify-end 
-      xl:pr-5
-      "
-        >
-            <div
-                className="
-        flex
-        items-center
-        text-amber-100
-        text-[10px]
-        gap-2
-        "
-            >
+        <footer className="fixed bottom-2 flex w-full justify-center xl:justify-end xl:pr-5">
+            <div className="flex items-center gap-2 text-[10px] text-amber-100">
                 {`© ${currentYear} Designed and built by ekodes`}
                 <a
                     href="https://github.com/krig6"

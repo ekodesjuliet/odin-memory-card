@@ -8,14 +8,7 @@ export const Background = () => (
         loop
         playsInline
         poster={poster}
-        className="
-      w-full 
-      h-full
-      xl:object-[50%_15%] object-cover
-      fixed 
-      inset-0 
-      z-0
-    "
+        className="fixed inset-0 z-0 h-full w-full object-cover xl:object-[50%_15%]"
     >
         <source src={liveBg} type="video/mp4" />
     </video>

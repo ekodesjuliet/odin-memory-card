@@ -8,15 +8,7 @@ type HomePageProps = {
 }
 
 export const Homepage = ({ onStartGame }: HomePageProps) => (
-    <main
-        className="
-    flex
-    flex-col
-    justify-center
-    items-center
-    gap-6
-    "
-    >
+    <main className="flex flex-col items-center justify-center gap-6">
         <header className="pt-20">
             <GameTitle />
         </header>

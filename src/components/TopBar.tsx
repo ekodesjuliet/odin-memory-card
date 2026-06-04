@@ -22,7 +22,7 @@ export const TopBar = ({
     onToggleHelp,
 }: GameHeaderProps) => (
     <header
-        className={`flex w-full items-center mt-6 relative z-10 px-6 2xl:px-10 ${
+        className={`relative z-10 mt-6 flex w-full items-center px-6 2xl:px-10 ${
             showBackButton ? 'justify-between' : 'justify-end'
         }`}
     >
@@ -30,7 +30,7 @@ export const TopBar = ({
             <Button onClick={onBack} variant="icon">
                 <ArrowLeftStroke
                     size="md"
-                    className="text-lime-400 cursor-pointer"
+                    className="cursor-pointer text-lime-400"
                 />
             </Button>
         )}
@@ -40,14 +40,14 @@ export const TopBar = ({
                 <Button onClick={onToggleMute} variant="icon">
                     <VolumeMute
                         size="sm"
-                        className="text-lime-400 cursor-pointer"
+                        className="cursor-pointer text-lime-400"
                     />
                 </Button>
             ) : (
                 <Button onClick={onToggleMute} variant="icon">
                     <VolumeFull
                         size="sm"
-                        className="text-lime-400 cursor-pointer"
+                        className="cursor-pointer text-lime-400"
                     />
                 </Button>
             )}
@@ -55,7 +55,7 @@ export const TopBar = ({
             <Button onClick={onToggleHelp} variant="icon">
                 <HelpCircle
                     size="sm"
-                    className="text-lime-400 cursor-pointer"
+                    className="cursor-pointer text-lime-400"
                 />
             </Button>
         </div>
