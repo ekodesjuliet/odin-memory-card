@@ -8,6 +8,7 @@ import { TopBar } from './components/TopBar'
 import { GameOverModal } from './components/GameOverModal'
 import { Background } from './components/Background'
 import { HelpModal } from './components/HelpModal'
+import { WinningModal } from './components/WinningModal'
 import { useGame } from './hooks/useGame'
 import { useAudio } from './hooks/useAudio'
 
@@ -45,18 +46,15 @@ export const App = () => {
                 onToggleMute={handleToggleMute}
                 onToggleHelp={game.actions.handleToggleHelp}
             />
-
             {game.state.isHelpOpen && (
                 <HelpModal
                     isPlaying={game.state.isGameScreen}
                     onClick={game.actions.handleToggleHelp}
                 />
             )}
-
             {game.state.gameState === 'idle' && (
                 <Homepage onStartGame={game.actions.handleStartGame} />
             )}
-
             {game.state.isGameScreen && (
                 <>
                     <main className="m-6 flex flex-col gap-6">
@@ -72,10 +70,14 @@ export const App = () => {
                     </main>
                 </>
             )}
-
             {game.state.gameState === 'ended' && (
                 <GameOverModal onTryAgain={game.actions.handleTryAgain} />
             )}
+
+            {game.state.maxScore === game.state.currentScore &&
+                game.state.gameState === 'active' && (
+                    <WinningModal onClick={game.actions.handleTryAgain} />
+                )}
         </>
     )
 }

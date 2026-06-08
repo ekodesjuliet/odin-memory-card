@@ -16,6 +16,9 @@ export const useGame = () => {
     const [isHelpOpen, setIsHelpOpen] = useState<boolean>(false)
 
     const currentScore = clickedCards.size
+    const maxScore =
+        DIFFICULTY_CONFIG.find((config) => config.difficulty === difficulty)
+            ?.cardCount ?? 0
     const isGameScreen = gameState !== 'idle'
 
     const handleStartGame = (difficulty: Difficulty) => {
@@ -81,6 +84,7 @@ export const useGame = () => {
             currentScore,
             isGameScreen,
             isHelpOpen,
+            maxScore,
         },
         actions: {
             handleStartGame,
