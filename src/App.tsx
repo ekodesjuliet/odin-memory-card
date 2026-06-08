@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react'
+import 'ldrs/react/Quantum.css'
+import { Quantum } from 'ldrs/react'
 import { Homepage } from './components/Homepage'
 import { Gameboard } from './components/Gameboard'
 import { Score } from './components/Score'
@@ -11,6 +14,23 @@ import { useAudio } from './hooks/useAudio'
 export const App = () => {
     const game = useGame()
     const { audioRef, isMuted, bgMusic, handleToggleMute } = useAudio()
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setIsLoading(false)
+        }, 5000)
+
+        return () => clearTimeout(timeoutId)
+    }, [])
+
+    if (isLoading) {
+        return (
+            <div className="fixed inset-0 flex items-center justify-center bg-black">
+                <Quantum size="150" speed="2" color="#9ae600" />
+            </div>
+        )
+    }
 
     return (
         <>
