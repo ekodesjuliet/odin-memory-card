@@ -5,7 +5,7 @@ import { DIFFICULTY_CONFIG } from '../types/difficulty'
 import { fetchCharacters } from '../services/characterService'
 import { shuffleCharacters } from '../utils/shuffleCharacters'
 
-type GameState = 'idle' | 'active' | 'ended'
+type GameState = 'idle' | 'active' | 'ended' | 'loading'
 
 export const useGame = () => {
     const [gameState, setGameState] = useState<GameState>('idle')
@@ -21,10 +21,12 @@ export const useGame = () => {
             ?.cardCount ?? 0
     const isGameScreen = gameState !== 'idle'
 
-    const handleStartGame = (difficulty: Difficulty) => {
-        setGameState('active')
+    const handleStartGame = async (difficulty: Difficulty) => {
+        setGameState('loading')
         setDifficulty(difficulty)
-        loadCharacters(difficulty)
+
+        await loadCharacters(difficulty)
+        setGameState('active')
     }
 
     const handleBackToHome = () => {
@@ -67,7 +69,21 @@ export const useGame = () => {
 
         const data = await fetchCharacters()
         const selected = data.slice(0, config.cardCount)
+        await preloadImages(characters)
         setCharacters(selected)
+    }
+
+    const preloadImages = async (characters: Character[]) => {
+        return Promise.all(
+            characters.map((character) => {
+                return new Promise<void>((resolve) => {
+                    const img = new Image()
+                    img.src = character.image
+                    img.onload = () => resolve()
+                    img.onerror = () => resolve()
+                })
+            })
+        )
     }
 
     const handleToggleHelp = () => {

@@ -24,7 +24,7 @@ export const App = () => {
         return () => clearTimeout(timeoutId)
     }, [])
 
-    if (isLoading) {
+    if (game.state.gameState === 'loading') {
         return <LoadingScreen />
     }
 
