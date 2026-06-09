@@ -13,7 +13,7 @@ import { LoadingScreen } from './components/LoadingScreen'
 
 export const App = () => {
     const game = useGame()
-    const { audioRef, isMuted, bgMusic, handleToggleMute } = useAudio()
+    const { isMuted, handleToggleMute } = useAudio()
     const [isAppReady, setIsAppReady] = useState<boolean>(false)
     const isLoading = !isAppReady || game.state.gameState === 'loading'
 
@@ -31,8 +31,6 @@ export const App = () => {
         <>
             <Background />
 
-            <audio loop ref={audioRef} src={bgMusic}></audio>
-
             <TopBar
                 showBackButton={game.state.isGameScreen}
                 onBack={game.actions.handleBackToHome}
@@ -40,15 +38,18 @@ export const App = () => {
                 onToggleMute={handleToggleMute}
                 onToggleHelp={game.actions.handleToggleHelp}
             />
+
             {game.state.isHelpOpen && (
                 <HelpModal
                     isPlaying={game.state.isGameScreen}
                     onClick={game.actions.handleToggleHelp}
                 />
             )}
+
             {game.state.gameState === 'idle' && (
                 <Homepage onStartGame={game.actions.handleStartGame} />
             )}
+
             {game.state.isGameScreen && (
                 <>
                     <main className="m-6 flex flex-col gap-6">
@@ -64,6 +65,7 @@ export const App = () => {
                     </main>
                 </>
             )}
+
             {game.state.gameState === 'ended' && (
                 <GameOverModal onTryAgain={game.actions.handleTryAgain} />
             )}
