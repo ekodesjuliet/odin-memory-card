@@ -10,8 +10,8 @@ export const LoadingScreen = () => (
             className="absolute inset-0 z-0 h-full w-full object-cover xl:object-[50%_15%]"
         />
 
-        <div className="relative z-10">
-            <Quantum size="150" speed="2" color="#9ae600" />
+        <div className="relative z-10 scale-50 drop-shadow-[0_0_15px_#3ad8ff] md:scale-75 lg:scale-100">
+            <Quantum size="150" speed="2" color="#C6F3FF" />
         </div>
     </div>
 )
