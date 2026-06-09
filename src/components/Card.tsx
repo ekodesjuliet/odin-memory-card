@@ -1,4 +1,5 @@
 import type { Character } from '../types/character.ts'
+import fallbackImage from '../assets/images/fallback.jpeg'
 
 type CardProps = {
     character: Character
@@ -15,9 +16,13 @@ export const Card = ({ character, onCardClick }: CardProps) => (
             <div className="absolute inset-0 bg-linear-to-tl from-black/40 opacity-80 group-hover:opacity-60" />
 
             <img
-                className="w-full transition-all duration-500 group-hover:scale-110 group-hover:rotate-1 group-hover:saturate-150"
+                className="aspect-square w-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:rotate-1 group-hover:saturate-150"
                 src={character.image}
                 alt={character.name}
+                onError={(e) => {
+                    e.currentTarget.onerror = null
+                    e.currentTarget.src = fallbackImage
+                }}
             />
 
             <p className="relative z-10 w-30 truncate px-2 py-2 text-xs tracking-wide text-lime-300 drop-shadow-[0_0_6px_rgba(0,255,100,0.6)] group-hover:text-white md:w-50 lg:w-60">
