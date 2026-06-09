@@ -22,7 +22,7 @@ export const TopBar = ({
     onToggleHelp,
 }: GameHeaderProps) => (
     <header
-        className={`relative z-10 mt-6 flex w-full items-center px-6 2xl:px-10 ${
+        className={`relative z-10 mt-6 flex w-full items-center px-2 ${
             showBackButton ? 'justify-between' : 'justify-end'
         }`}
     >
@@ -35,7 +35,7 @@ export const TopBar = ({
             </Button>
         )}
 
-        <div className="flex gap-6">
+        <div className="flex gap-0">
             {isMuted ? (
                 <Button onClick={onToggleMute} variant="icon">
                     <VolumeMute
