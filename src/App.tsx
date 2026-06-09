@@ -14,17 +14,16 @@ import { LoadingScreen } from './components/LoadingScreen'
 export const App = () => {
     const game = useGame()
     const { audioRef, isMuted, bgMusic, handleToggleMute } = useAudio()
-    const [isLoading, setIsLoading] = useState<boolean>(true)
+    const [isAppReady, setIsAppReady] = useState<boolean>(false)
+    const isLoading = !isAppReady || game.state.gameState === 'loading'
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setIsLoading(false)
-        }, 5000)
-
-        return () => clearTimeout(timeoutId)
+        document.fonts.ready.then(() => {
+            setIsAppReady(true)
+        })
     }, [])
 
-    if (game.state.gameState === 'loading') {
+    if (isLoading) {
         return <LoadingScreen />
     }
 
