@@ -31,7 +31,7 @@ export const App = () => {
         <>
             <Background />
 
-            <audio ref={audioRef} src={bgMusic}></audio>
+            <audio loop ref={audioRef} src={bgMusic}></audio>
 
             <TopBar
                 showBackButton={game.state.isGameScreen}

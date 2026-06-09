@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import bgMusic from '../assets/music/background.mp3'
+import bgMusic from '../assets/music/bg-music.mp3'
 
 export const useAudio = () => {
     const [isMuted, setIsMuted] = useState<boolean>(true)
