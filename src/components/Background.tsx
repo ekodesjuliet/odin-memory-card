@@ -1,5 +1,5 @@
 import liveBg from '../assets/bg/live-bg.mp4'
-import poster from '../assets/bg/poster.png'
+import poster from '../assets/images/poster.webp'
 
 export const Background = () => (
     <video
