@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import 'ldrs/react/Quantum.css'
-import { Quantum } from 'ldrs/react'
+import { useGame } from './hooks/useGame'
+import { useAudio } from './hooks/useAudio'
 import { Homepage } from './components/Homepage'
 import { Gameboard } from './components/Gameboard'
 import { Score } from './components/Score'
@@ -9,8 +9,7 @@ import { GameOverModal } from './components/GameOverModal'
 import { Background } from './components/Background'
 import { HelpModal } from './components/HelpModal'
 import { WinningModal } from './components/WinningModal'
-import { useGame } from './hooks/useGame'
-import { useAudio } from './hooks/useAudio'
+import { LoadingScreen } from './components/LoadingScreen'
 
 export const App = () => {
     const game = useGame()
@@ -26,11 +25,7 @@ export const App = () => {
     }, [])
 
     if (isLoading) {
-        return (
-            <div className="fixed inset-0 flex items-center justify-center bg-black">
-                <Quantum size="150" speed="2" color="#9ae600" />
-            </div>
-        )
+        return <LoadingScreen />
     }
 
     return (
