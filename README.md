@@ -6,7 +6,7 @@ A Rick and Morty-themed memory card game built as part of The Odin Project's Rea
 
 Odin Memory Card - Wubba lubba dub dub! Can you remember them all?
 
-[Play it live — because a sharp memory is a click above the rest.](https://krig6.github.io/odin-memory-card/)
+[Play it live — because a sharp memory is a click above the rest.](https://ekodesjuliet.github.io/odin-memory-card/)
 
 ## Technologies Used
 
